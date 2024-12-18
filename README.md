@@ -1,76 +1,54 @@
-# Fetch Synthetic Monitor
+## Fetch Synthetic Monitor
 
 A simple python program to check the health of a set of HTTP endpoints. 
 
-## Sample Input File
-```
-- headers:
-  user-agent: fetch-synthetic-monitor
-  method: GET
-  name: fetch index page
-  url: https://fetch.com/
-- headers:
-  user-agent: fetch-synthetic-monitor
-  method: GET
-  name: fetch careers page
-  url: https://fetch.com/careers
-- body: '{"foo":"bar"}'
-  headers:
-  content-type: application/json
-  user-agent: fetch-synthetic-monitor
-  method: POST
-  name: fetch some fake post endpoint
-  url: https://fetch.com/some/post/endpoint
-- name: fetch rewards index page
-  url: https://www.fetchrewards.com/
-```
+---
 
-## Output
-```
-fetch.com has 33% availability percentage
-www.fetchrewards.com has 100% availability percentage
-fetch.com has 67% availability percentage
-www.fetchrewards.com has 50% availability percentage
-```
+## Background
+
 
 ## Install
 
-### Source
-
 Clone the repository:
-
 ```bash
 git clone https://github.com/ztnewman/fetch-synthetic-monitor.git && cd fetch-synthetic-monitor
 ```
 
-Create a virtual environment (recommended):
-```
+Create a virtual environment:
+```bash
 python -m venv env
 source env/bin/activate
 pip install -r requiements.txt
 ```
 
-Run:
-```
-python fetch-synthetic-monitor.py -c endpoints.yaml
-```
-
-## Docker
+### Docker Image
 
 Build the container:
-```
+```bash
 docker build -t fetch-synthetic-monitor .
 ```
 
-Run:
+## Usage
+
+Run the python script:
+```bash
+python fetch-synthetic-monitor.py -c endpoints.yaml
 ```
+
+Run the docker image:
+```bash
 docker run -it fetch-synthetic-monitor endpoints.yaml
 ```
 
-# TO DO
+### TO DO
 - Add TDD unit tests
 - Improve logging 
 - CICD githab actions to build and deploy
 - Improve Dockerfile
 - Dependabot
 - Auto pylint + flake8
+
+### License
+
+[MIT © Richard McRichface.](../LICENSE)
+## 
